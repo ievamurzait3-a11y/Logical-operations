@@ -1,0 +1,21 @@
+import cv2 as cv
+from PIL import Image
+
+imgb = Image.open(r"C:\Users\ievas\Downloads\B.jpg")
+imgb.thumbnail((461, 691))
+imgb.save(r"C:\Users\ievas\Downloads\B_resized.jpg")
+
+imga = Image.open(r"C:\Users\ievas\Downloads\A.jpg")
+imga.thumbnail((461, 691))
+imga.save(r"C:\Users\ievas\Downloads\A_resized.jpg")
+
+img1 = cv.imread(r'C:\Users\ievas\Downloads\A_resized.jpg')
+img2 = cv.imread(r"C:\Users\ievas\Downloads\B_resized.jpg")
+
+res = cv.bitwise_not(img1, img2)
+
+cv.imshow('image_not', res)
+cv.imshow('1', img1)
+cv.imshow('2', img2)
+cv.waitKey(0)
+
